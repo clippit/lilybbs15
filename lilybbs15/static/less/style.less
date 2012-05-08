@@ -11,6 +11,10 @@ body {
 /* ===== Primary Styles ========================================================
    Author:
    ========================================================================== */
+.navbar-inner {
+    background-image: url("../img/lil_fiber.png");
+    background-repeat: repeat;
+}
 
 .hero-unit {
     background-image: url("../img/hero-bg.jpg");
@@ -18,6 +22,9 @@ body {
     background-repeat: no-repeat;
     height: 400px;
 
+    .left {
+        float: left;
+    }
     .right {
         float: right;
         img {
@@ -26,16 +33,62 @@ body {
             margin-top: -100px;
         }
     }
-    #progress {
+    .countdown {
         float: left;
         background-image: url("../img/countdown-bg.png");
         width: 545px;
         height: 146px;
         margin-top: 140px;
+        position: relative;
     }
     
 }
 
+#countdown {
+    height: 110px;
+    margin-top:20px;
+    position: absolute;
+    margin-left: 65px;
+}
+.dash {
+    height: 114px;
+    float: left;
+    position: relative;
+}
+.separator {
+    height: 114px;
+    background-image: url('../img/countdown_bg_separator.png');
+    background-repeat: no-repeat;
+    width: 2px;
+    margin: 0 25px;
+}
+.dash .digit {
+    font-size: 60px;
+    line-height: 60px;
+    font-weight: normal;
+    float: left;
+    text-align: center;
+    width: 30px;
+    display: block;
+    font-family: 'BebasNeueRegular';
+    text-shadow: 0px 1px 0px #B8D2E4;
+    color: #FFFFFF;
+    position: relative;
+    padding:14px 0px 7px 0px;
+}
+.dash_title {
+    position: absolute;
+    display: block;
+    margin-top: 80px;
+    font-size: 14px;
+    width: 60px;
+    left: 0;
+    color: #73C5FF;
+    font-family: 'BebasNeueRegular';
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align:center;
+}
 
 
 

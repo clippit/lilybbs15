@@ -13,6 +13,7 @@
 
 	<meta name="viewport" content="width=device-width">
 
+  <link rel="stylesheet" href="/static/fonts/bebas.css">
   <link rel="stylesheet" href="/static/less/style.css">
 
 	<script src="/static/js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
@@ -47,7 +48,33 @@
         <h1>站庆活动筹备中……</h1>
         <p>参与我们的筹备活动！</p>
         <div class="right"><img class="floating-rocket" src="/static/img/rocket.png" alt="Launching" /></div>
-        <div class="left" id="progress"></div>
+        <div class="left countdown">
+          <div id="countdown">
+            <div class="dash days_dash">
+                <span class="dash_title">days</span>
+                <div class="digit">0</div>
+                <div class="digit">0</div>
+            </div>
+            <div class="left separator"></div>
+            <div class="dash hours_dash">
+                <span class="dash_title">hours</span>
+                <div class="digit">0</div>
+                <div class="digit">0</div>
+            </div>
+            <div class="left separator"></div>
+            <div class="dash minutes_dash">
+                <span class="dash_title">minutes</span>
+                <div class="digit">0</div>
+                <div class="digit">0</div>
+            </div>
+            <div class="left separator"></div>
+            <div class="dash seconds_dash">
+                <span class="dash_title">seconds</span>
+                <div class="digit">0</div>
+                <div class="digit">0</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -80,6 +107,7 @@
     </div> <!-- /container -->
 <script src="/static/js/libs/jquery-1.7.2.min.js"></script>
 <script src="/static/js/libs/bootstrap/bootstrap.min.js"></script>
+<script src="/static/js/plugins.js"></script>
 <script src="/static/js/script.js"></script>
 <script>
 	var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
