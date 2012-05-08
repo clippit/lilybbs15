@@ -20,15 +20,38 @@
 <body>
 <!--[if lt IE 7]><p class=chromeframe>你的浏览器 <em>太古老了！</em> <a href="http://browsehappy.com/">换一个更好的浏览器</a> 或者 <a href="http://www.google.com/chromeframe/?redirect=true">安装 Google Chrome Frame</a> 以获得更好的效果。</p><![endif]-->
 
-    <div class="container">
-
-      <!-- Main hero unit for a primary marketing message or call to action -->
-      <div class="hero-unit">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="#">LilyBBS15</a>
+        <div class="nav-collapse">
+          <a href="#contact" class="pull-right btn btn-primary">登录</a>
+          <ul class="nav pull-right">
+            <li class="active"><a href="#">首页</a></li>
+            <li><a href="#about">活动话题</a></li>
+            <li><a href="#contact">站庆公告</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
       </div>
+    </div>
+  </div>
+    
+    <!-- Main hero unit for a primary marketing message or call to action -->
+    <div class="hero-unit">
+      <div class="container">
+        <h1>站庆活动筹备中……</h1>
+        <p>参与我们的筹备活动！</p>
+        <div class="right"><img class="floating-rocket" src="/static/img/rocket.png" alt="Launching" /></div>
+        <div class="left" id="progress"></div>
+      </div>
+    </div>
 
+    <div class="container">
       <!-- Example row of columns -->
       <div class="row">
         <div class="span4">
@@ -51,15 +74,12 @@
       <hr>
 
       <footer>
-        <p>&copy; Company 2012</p>
+        <p>&copy; LilyBBS 2012</p>
       </footer>
 
     </div> <!-- /container -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="/static/js/libs/jquery-1.7.2.min.js"><\/script>')</script>
-
+<script src="/static/js/libs/jquery-1.7.2.min.js"></script>
 <script src="/static/js/libs/bootstrap/bootstrap.min.js"></script>
-
 <script src="/static/js/script.js"></script>
 <script>
 	var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
