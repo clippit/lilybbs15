@@ -5,6 +5,17 @@
 	<div class="page-header">
 		<h1>{% block pageheader %}{% endblock %}</h1>
 	</div>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+	    {% for message in messages %}
+	      <div class="alert">
+	      	<button class="close" data-dismiss="alert">×</button>
+	      	{{ message|safe }}
+	      </div>
+	    {% endfor %}
+	  {% endif %}
+	{% endwith %}
+
 	{% block content %}{% endblock %}
 </div>
 {% endblock %}
