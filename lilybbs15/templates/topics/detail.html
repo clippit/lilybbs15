@@ -1,7 +1,9 @@
-{% extends "single.html" %}
+{% extends "single_layout.html" %}
+
+{% block pageheader %}
+{{ topic.title }}
+{% endblock %}
 
 {% block content %}
-<div class="page-header">
-	<h1>{{ topic.title }}</h1>
-</div>
+Test~~
 {% endblock %}
