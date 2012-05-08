@@ -12,6 +12,10 @@ def show(slug):
     return render_template('topics/detail.html', topic=topic)
 
 
+@app.route('/')
+def index():
+    return render_template('index.html')
+
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static/img'),

@@ -21,6 +21,7 @@
 <body>
 <!--[if lt IE 7]><p class=chromeframe>你的浏览器 <em>太古老了！</em> <a href="http://browsehappy.com/">换一个更好的浏览器</a> 或者 <a href="http://www.google.com/chromeframe/?redirect=true">安装 Google Chrome Frame</a> 以获得更好的效果。</p><![endif]-->
 
+  {%- block navbar -%}
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
@@ -41,70 +42,17 @@
       </div>
     </div>
   </div>
+  {%- endblock -%}
+
+  {% block body %}{% endblock %}
     
-    <!-- Main hero unit for a primary marketing message or call to action -->
-    <div class="hero-unit">
-      <div class="container">
-        <h1>站庆活动筹备中……</h1>
-        <p>参与我们的筹备活动！</p>
-        <div class="right"><img class="floating-rocket" src="/static/img/rocket.png" alt="Launching" /></div>
-        <div class="left countdown">
-          <div id="countdown">
-            <div class="dash days_dash">
-                <span class="dash_title">days</span>
-                <div class="digit">0</div>
-                <div class="digit">0</div>
-            </div>
-            <div class="left separator"></div>
-            <div class="dash hours_dash">
-                <span class="dash_title">hours</span>
-                <div class="digit">0</div>
-                <div class="digit">0</div>
-            </div>
-            <div class="left separator"></div>
-            <div class="dash minutes_dash">
-                <span class="dash_title">minutes</span>
-                <div class="digit">0</div>
-                <div class="digit">0</div>
-            </div>
-            <div class="left separator"></div>
-            <div class="dash seconds_dash">
-                <span class="dash_title">seconds</span>
-                <div class="digit">0</div>
-                <div class="digit">0</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <hr>
+  <div class="container">
+    <footer>
+      <p>&copy; LilyBBS 2012. Developed By LilyStudio</p>
+    </footer>
+  </div>
 
-    <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="span4">
-          <h2>Heading</h2>
-           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-        </div>
-        <div class="span4">
-          <h2>Heading</h2>
-           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-       </div>
-        <div class="span4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-        </div>
-      </div>
-
-      <hr>
-
-      <footer>
-        <p>&copy; LilyBBS 2012</p>
-      </footer>
-
-    </div> <!-- /container -->
 <script src="/static/js/libs/jquery-1.7.2.min.js"></script>
 <script src="/static/js/libs/bootstrap/bootstrap.min.js"></script>
 <script src="/static/js/plugins.js"></script>
