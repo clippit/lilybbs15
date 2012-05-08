@@ -6,6 +6,11 @@ from models import Topic
 topic = Blueprint('topics', __name__, template_folder='templates')
 
 
+@topic.route('/')
+def topics():
+    return "Hello!"
+
+
 @topic.route('/<slug>')
 def show(slug):
     topic = Topic.objects.get_or_404(slug=slug)
@@ -15,6 +20,12 @@ def show(slug):
 @app.route('/')
 def index():
     return render_template('index.html')
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    pass
+
 
 @app.route('/favicon.ico')
 def favicon():
