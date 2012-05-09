@@ -20,7 +20,7 @@ def topics():
     return "Hello!"
 
 
-@topic.route('/<slug>')
+@topic.route('/<slug>/')
 def show(slug):
     topic = Topic.objects.get_or_404(slug=slug)
     return render_template('topics/detail.html', topic=topic)
@@ -31,7 +31,7 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login/', methods=['GET', 'POST'])
 def login():
     redirect_url = request.args.get('next', url_for('index'))
     if 'logged_name' in session:
@@ -46,7 +46,7 @@ def login():
     return render_template('login.html')
 
 
-@app.route('/logout')
+@app.route('/logout/')
 def logout():
     session.pop('logged_name', None)
     return redirect(url_for('index'))
