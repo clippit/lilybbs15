@@ -8,11 +8,11 @@
 <div class="topic-content well">{{ topic.body }}</div>
 <div class="row-fluid">
 	<div class="span4">
-		<form class="form-vertical post-comment">
+		<form class="form-vertical post-comment" action="{{ request.base_url }}add" method="post">
 		  <fieldset>
 			<legend>我来说两句</legend>
 			<div class="control-group">
-				<textarea class="" id="textarea" rows="7"></textarea>
+				<textarea class="" id="textarea" rows="7" name="content"></textarea>
 				<p class="help-block">提交内容会立即显示并供票选，请勿发布垃圾信息。</p>
 			</div>
 			<div class="form-actions">

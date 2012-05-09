@@ -47,6 +47,19 @@ def voteup(slug):
     abort(404)
 
 
+@topic.route('/<slug>/add', methods=['POST'])
+def add_comment(slug):
+    content = request.form.get('content', None)
+    if content is None:
+        abort(400)
+    current_user = User.objects.get(name_lower=session['logged_name'].lower())
+    comment = Comment(body=content, author=current_user)
+    topic = Topic.objects.get_or_404(slug=slug)
+    topic.comments.append(comment)
+    topic.save()
+    return redirect(topic.get_absolute_url())
+
+
 @app.route('/')
 def index():
     return render_template('index.html')
