@@ -8,4 +8,5 @@ argparse
 Flask-Script
 Flask-WTF
 WTForms
+httplib2
 distribute
