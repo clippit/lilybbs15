@@ -5,7 +5,7 @@ from flask import Blueprint, flash, render_template, request, redirect, send_fro
 from . import app
 from models import *
 
-topic = Blueprint('topics', __name__, template_folder='templates')
+topic = Blueprint('topics', __name__, template_folder='templates/topics')
 
 
 @topic.before_request
@@ -17,13 +17,14 @@ def login_required():
 
 @topic.route('/')
 def topics():
-    return "Hello!"
+    topics = Topic.objects.all()
+    return render_template('topic_index.html', topics=topics)
 
 
 @topic.route('/<slug>/')
 def show(slug):
     topic = Topic.objects.get_or_404(slug=slug)
-    return render_template('topics/detail.html', topic=topic)
+    return render_template('topic_detail.html', topic=topic)
 
 
 @app.route('/')

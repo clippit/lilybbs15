@@ -52,7 +52,7 @@ class Topic(db.Document):
     comments = db.ListField(db.EmbeddedDocumentField(Comment))
 
     def get_absolute_url(self):
-        return url_for('topic', kwargs={"slug": self.slug})
+        return url_for('topics.show', slug=self.slug)
 
     def __unicode__(self):
         return self.title

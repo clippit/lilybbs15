@@ -1,0 +1,12 @@
+{% extends "single_layout.html" %}
+
+{% block pageheader %}
+在线活动话题
+{% endblock %}
+
+{% block content %}
+{% for topic in topics %}
+<h2><a href="{{ url_for('topics.show', slug=topic.slug) }}">{{ topic.title }}</a></h2>
+<p>{{ topic.body|truncate(100) }}</p>
+{% endfor %}
+{% endblock %}
