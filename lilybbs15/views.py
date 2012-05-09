@@ -8,6 +8,13 @@ from models import *
 topic = Blueprint('topics', __name__, template_folder='templates')
 
 
+@topic.before_request
+def login_required():
+    if 'logged_name' not in session:
+        flash(u'请先登录。')
+        return redirect(url_for('login', next=request.url))
+
+
 @topic.route('/')
 def topics():
     return "Hello!"
@@ -31,7 +38,8 @@ def login():
             flash(u'登录失败，请重试。')
         else:
             session['logged_name'] = request.form['username']
-            return redirect(url_for('index'))
+            redirect_url = request.args.get('next', url_for('index'))
+            return redirect(redirect_url)
 
     return render_template('login.html')
 
