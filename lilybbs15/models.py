@@ -18,13 +18,24 @@ class User(db.Document):
 
     @staticmethod
     def login_bbs(username, password):
+        check_single_user = User.objects(other_names=username.lower()).limit(1)
+        if check_single_user:
+            flash(u'请使用 %s 登录。' % (check_single_user[0].name))
+            return False
         if not callbbs.validate_password(username, password):
             flash(u'<strong>错误！</strong>用户名或密码不正确，或者已经超过最大重试次数。')
             return False
         if User.objects(name_lower=username.lower()).count() == 1:
             return True
-        print 'not implement'
-        return False
+        else:
+            # First login
+            identity, other_names = callbbs.find_identity(username, password)
+            if identity is not None and other_names is not None:
+                user = User(name=username, name_lower=username.lower(), identity=identity, other_names=other_names)
+                user.save()
+            else:
+                return False
+            return True
 
 
 class Comment(db.EmbeddedDocument):
