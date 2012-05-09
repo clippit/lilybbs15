@@ -38,13 +38,17 @@ class User(db.Document):
                 return False
             return True
 
+    @staticmethod
+    def get_user(username):
+        return User.objects.get(name_lower=username.lower())
+
 
 class Comment(db.EmbeddedDocument):
     cid = db.ObjectIdField(default=ObjectId, required=True)
     created_at = db.DateTimeField(default=datetime.now, required=True)
     body = db.StringField(verbose_name="Comment", required=True)
     author = db.ReferenceField(User)
-    votes = db.ListField(db.ReferenceField(User))
+    votes = db.ListField(db.StringField(max_length=255))
 
 
 class Topic(db.Document):

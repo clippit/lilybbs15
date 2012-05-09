@@ -4,9 +4,22 @@
 
 (function(){
 
-  $(".voteup").click(function(e) {
+  $(".voteup").on('click', function(e) {
     e.preventDefault();
-    console.log($(this).data('cid'));
+    $this = $(this);
+    if ($this.hasClass('disabled')) {
+      return;
+    }
+    $.ajax({
+      type: 'POST',
+      url: 'voteup',
+      data: {cid: $this.data('cid')},
+      success: function (data, textStatus, jqXHR) {
+        if (data == 'ok') {
+          $this.addClass('disabled').children('span').text('已赞');
+        }
+      }
+    });
   });
   
   $('.floating-rocket').everyTime(10, function () {

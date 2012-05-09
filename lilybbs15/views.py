@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-from flask import Blueprint, flash, render_template, request, redirect, send_from_directory, session, url_for
+from flask import Blueprint, flash, render_template, request, abort, redirect, send_from_directory, session, url_for
 from . import app
 from models import *
 
@@ -25,6 +25,24 @@ def topics():
 def show(slug):
     topic = Topic.objects.get_or_404(slug=slug)
     return render_template('topic_detail.html', topic=topic)
+
+
+@topic.route('/<slug>/voteup', methods=['POST'])
+def voteup(slug):
+    if not request.is_xhr:
+        abort(405)
+    cid = request.form.get('cid', None)
+    if cid is None:
+        abort(400)
+    topic = Topic.objects.get_or_404(slug=slug)
+    current_user = session['logged_name'].lower()
+    for comment in topic.comments:
+        if str(comment.cid) == cid and current_user not in comment.votes:
+            comment.votes.append(current_user)
+            topic.save()
+            return 'ok'
+            break
+    abort(404)
 
 
 @app.route('/')
