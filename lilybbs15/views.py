@@ -24,7 +24,9 @@ def topics():
 @topic.route('/<slug>/')
 def show(slug):
     topic = Topic.objects.get_or_404(slug=slug)
-    return render_template('topic_detail.html', topic=topic)
+    current_user = session['logged_name'].lower()
+    voted = [c.cid for c in topic.comments if current_user in c.votes]
+    return render_template('topic_detail.html', topic=topic, voted=voted)
 
 
 @topic.route('/<slug>/voteup', methods=['POST'])

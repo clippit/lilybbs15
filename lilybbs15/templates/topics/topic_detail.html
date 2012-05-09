@@ -11,8 +11,8 @@
 	<div class="comment-body">{{ comment.body }}</div>
 	<div class="meta">{{ comment.author }}</div>
 	<div class="vote">
-		<a href="javascript:void(0)" class="voteup btn btn-success" data-cid="{{ comment.cid }}">
-			<i class="icon-thumbs-up icon-white"></i> <span>赞</span>
+		<a href="javascript:void(0)" class="voteup btn {% if comment.cid in voted %}disabled{% endif %} btn-success" data-cid="{{ comment.cid }}">
+			<i class="icon-thumbs-up icon-white"></i> <span>{% if comment.cid in voted %}已{% endif %}赞</span>
 		</a>
 	</div>
 </div>
