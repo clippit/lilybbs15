@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-import datetime
+from datetime import datetime
+from bson.objectid import ObjectId
 from flask import url_for, flash
 from . import db
 import callbbs
@@ -9,7 +10,7 @@ import callbbs
 class User(db.Document):
     name = db.StringField(max_length=255, required=True)
     name_lower = db.StringField(max_length=255, required=True)
-    created_at = db.DateTimeField(default=datetime.datetime.now, required=True)
+    created_at = db.DateTimeField(default=datetime.now, required=True)
     identity = db.StringField(max_length=25, required=True)
     other_names = db.ListField(db.StringField(max_length=255))
 
@@ -39,7 +40,8 @@ class User(db.Document):
 
 
 class Comment(db.EmbeddedDocument):
-    created_at = db.DateTimeField(default=datetime.datetime.now, required=True)
+    cid = db.ObjectIdField(default=ObjectId, required=True)
+    created_at = db.DateTimeField(default=datetime.now, required=True)
     body = db.StringField(verbose_name="Comment", required=True)
     author = db.ReferenceField(User)
     votes = db.ListField(db.ReferenceField(User))

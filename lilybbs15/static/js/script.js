@@ -2,8 +2,13 @@
 
 */
 
+(function(){
 
-$(function(){
+  $(".voteup").click(function(e) {
+    e.preventDefault();
+    console.log($(this).data('cid'));
+  });
+  
   $('.floating-rocket').everyTime(10, function () {
       $(".floating-rocket").animate({
         marginTop: "+=10",
@@ -13,7 +18,6 @@ $(function(){
         marginLeft: "-=5"
       }, 1000, 'linear');
   });
-
 
   $("#countdown").countDown({
     targetDate: {
@@ -27,6 +31,5 @@ $(function(){
     omitWeeks: true
   });
 
+})();
 
-
-});

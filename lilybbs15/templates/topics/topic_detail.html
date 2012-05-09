@@ -5,5 +5,16 @@
 {% endblock %}
 
 {% block content %}
-Test~~
+<div class="topic-content well">{{ topic.body }}</div>
+{% for comment in topic.comments %}
+<div class="thumbnail comment">
+	<div class="comment-body">{{ comment.body }}</div>
+	<div class="meta">{{ comment.author }}</div>
+	<div class="vote">
+		<a href="javascript:void(0)" class="voteup btn btn-success" data-cid="{{ comment.cid }}">
+			<i class="icon-thumbs-up icon-white"></i> 赞
+		</a>
+	</div>
+</div>
+{% endfor %}
 {% endblock %}
