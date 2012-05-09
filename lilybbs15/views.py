@@ -33,12 +33,14 @@ def index():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    redirect_url = request.args.get('next', url_for('index'))
+    if 'logged_name' in session:
+        return redirect(redirect_url)
     if request.method == 'POST':
         if not User.login_bbs(request.form['username'], request.form['password']):
             flash(u'登录失败，请重试。')
         else:
             session['logged_name'] = request.form['username']
-            redirect_url = request.args.get('next', url_for('index'))
             return redirect(redirect_url)
 
     return render_template('login.html')
